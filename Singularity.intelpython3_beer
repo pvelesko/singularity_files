@@ -1,0 +1,18 @@
+Bootstrap: docker
+From: intelpython/intelpython3_full
+
+%setup
+
+%post
+   # install pre-reqs
+   pip install haversine
+   pip install jupyter
+
+   # git clone travelling beerman
+   # cd ${SINGULARITY_ROOTFS}
+   git clone https://github.com/pvelesko/datapup.git
+   cd datapup
+
+%runscript
+   cd ~/datapup
+   python ./datapup_oop.py
