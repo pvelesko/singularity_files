@@ -5,14 +5,15 @@ From: intelpython/intelpython3_full
 
 %post
    # install pre-reqs
-   pip install haversine
-   pip install jupyter
+   /opt/conda/bin/pip install haversine
+   /opt/conda/bin/pip install jupyter
 
    # git clone travelling beerman
    # cd ${SINGULARITY_ROOTFS}
    git clone https://github.com/pvelesko/datapup.git
-   cd datapup
 
 %runscript
-   cd ~/datapup
-   python ./datapup_oop.py
+   cd /datapup
+   . /opt/conda/bin/mpivars.sh
+   NRANK=`nproc`
+   mpirun -n $NRANK python ./datadog_oop.py
