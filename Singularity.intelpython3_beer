@@ -5,11 +5,11 @@ From: intelpython/intelpython3_full
 
 %post
    # install pre-reqs
-   /opt/conda/bin/pip install haversine
-   /opt/conda/bin/pip install jupyter
+   /opt/conda/bin/pip install haversine sqlalchemy jupyter
 
    # git clone travelling beerman
    # cd ${SINGULARITY_ROOTFS}
+   cd /;
    git clone https://github.com/pvelesko/datapup.git
 
 %runscript
